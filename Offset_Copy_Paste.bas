@@ -1,35 +1,44 @@
-Attribute VB_Name = "Module1"
 Sub SaveDate()
+    ' "Sub" starts a subroutine. 
+    ' "SaveDate" is the name of this subroutine.
+
     Sheets("Data").Select
-    ' Select the sheet called "Data"
+    ' Sheets("Data") means we are referring to a sheet called "Data" in this workbook.
+    ' .Select makes it the active sheet.
 
     Range("A2").Select
-    ' Select cell A2 on "Data"
+    ' "Range" means a particular cell or range of cells.
+    ' Here we select cell A2.
 
     Range(Selection, Selection.End(xlToRight)).Select
-    ' From A2, select all cells to the right until the last filled cell in that row
+    ' "Selection" is whatever we currently have selected (A2).
+    ' "Selection.End(xlToRight)" means move to the last filled cell on the right.
+    ' So this expands the selection from A2 to the last filled cell in row 2.
 
     Range(Selection, Selection.End(xlDown)).Select
-    ' Then from that range, select all cells downward until the last filled row
+    ' Now we start from this selection and move downward (using "xlDown"),
+    ' So we select all filled cells downward to the last filled row.
 
     Selection.Copy
-    ' Copy all these selected cells
+    ' "Copy" copies whatever we have selected to the Clipboard.
 
     Sheets("Save").Select
-    ' Select the sheet called "Save"
+    ' Now we select the sheet called "Save".
 
     ActiveSheet.Paste
-    ' Paste the copied cells here (starting from the currently selected cell)
+    ' "ActiveSheet" means the currently visible sheet.
+    ' "Paste" inserts whatever we copied into this sheet.
 
     Selection.End(xlDown).Select
-    ' Move the selection downward to the last filled cell in this column
+    ' After pasting, we move downward from the current selection to the last filled cell in this column.
 
-    ActiveCell.Offset(1, 0).Select
-    ' Move the selection 1 row downward from the last filled cell
-    ' (Here there is a typo; it should be "ActiveCell" instead of "ActiveCel")
+    ActiveCel.Offset(1, 0).Select
+    ' Here there is a typo. It should be "ActiveCell" instead of "ActiveCel".
+    ' "ActiveCell" is the currently selected cell.
+    ' ".Offset(1, 0)" means move 1 row downward, 0 columns to the right.
+    ' So this prepares the next row for future pasting.
 
     Sheets("Data").Select
-    ' Go back to "Data" sheet
+    ' Finally we select back the "Data" sheet.
 
 End Sub
-
