@@ -9,7 +9,7 @@ Sub COPY_DATE()
     ' Click on cell A1
 
     Range(Selection, Selection.End(xlToRight)).Select
-    ' Select from A1 to the last column with data in row 1
+' Select from A1 to the last column with data in row 1
 
     Range(Selection, Selection.End(xlDown)).Select
     ' Expand the selection down to the last row with data
