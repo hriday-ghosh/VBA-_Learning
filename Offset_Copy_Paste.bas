@@ -32,8 +32,7 @@ Sub SaveDate()
     Selection.End(xlDown).Select
     ' After pasting, we move downward from the current selection to the last filled cell in this column.
 
-    ActiveCel.Offset(1, 0).Select
-    ' Here there is a typo. It should be "ActiveCell" instead of "ActiveCel".
+    ActiveCell.Offset(1, 0).Select
     ' "ActiveCell" is the currently selected cell.
     ' ".Offset(1, 0)" means move 1 row downward, 0 columns to the right.
     ' So this prepares the next row for future pasting.
@@ -42,3 +41,4 @@ Sub SaveDate()
     ' Finally we select back the "Data" sheet.
 
 End Sub
+
